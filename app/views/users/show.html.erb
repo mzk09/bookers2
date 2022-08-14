@@ -2,6 +2,7 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+  <p><%= link_to "編集",edit_user_path(@user) %></p>
 </div>
 
 <% @books.each do |book| %>
@@ -10,6 +11,6 @@
   <%= link_to book_path(book.id) do %>
    <%= book.title %>
   <% end %>
-  
+  <%= book.body %>
 
 </div>

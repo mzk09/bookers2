@@ -16,7 +16,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @book.user_id 
+
   end
 
   def destroy
