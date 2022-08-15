@@ -1,7 +1,12 @@
 <div>
+  <p>
+    <%= link_to user_path(@book.user.id) do %>
+     <%= image_tag @book.user.get_profile_image(100,100) %>
+     <%= @book.user.name %>
+    <% end %>
+  </p>
   <p>title:<%= @book.title %></p>
   <p>setumei:<%= @book.body %></p>
-  <p>username:<%= @book.user.name %></p>
   <p>day:<%= @book.created_at.strftime('%Y/%m/%d') %></p>
   <% if @book.user == current_user %>
    <%= link_to "Destroy",book_path(@book),method: :delete %>
