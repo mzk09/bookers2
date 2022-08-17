@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only:[:new,:index,:show,:edit,:update]
+
+
   def new
     @book = Book.new
   end
@@ -26,11 +29,11 @@ class BooksController < ApplicationController
     @book = Book.new
     @user = current_user
   end
-  
+
   def edit
     @book =Book.find(params[:id])
   end
-  
+
   def update
     @book = book.find(params[:id])
     if @book.update(book_params)
@@ -40,7 +43,7 @@ class BooksController < ApplicationController
       render action: :edit
     end
   end
-  
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
