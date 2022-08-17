@@ -1,19 +1,33 @@
-<div class="container px-5 px-smm-0">
+<div class="container">
  <div class="row">
   <%= render 'books/list',user:@user %>
-  <div>
-    <p>
-     <%= link_to user_path(@book_show.user.id) do %>
-      <%= image_tag @book_show.user.get_profile_image(100,100) %>
-      <%= @book_show.user.name %>
-     <% end %>
-    </p>
-    <p>title:<%= @book_show.title %></p>
-    <p>setumei:<%= @book_show.body %></p>
-    <p>day:<%= @book_show.created_at.strftime('%Y/%m/%d') %></p>
-    <% if @book_show.user == current_user %>
-     <%= link_to "Destroy",book_path(@book_show),method: :delete %>
-    <% end %>
+  <div class="col-md-8 offset-md-1">
+   <h2>Book detail</h2>
+   <table class="table">
+    <tbody>
+     <tr>
+      <td>
+       <%= link_to user_path(@book_show.user.id) do %>
+       <%= image_tag @book_show.user.get_profile_image(100,100) %><br>
+       <%= @book_show.user.name %>
+       <% end %>
+      </td>
+      <td>
+       <%= link_to book_path(@book_show.id) do %>
+        <%= @book_show.title %>
+       <% end %>
+      </td>
+      <td>
+       <%= @book_show.body %>
+      </td>
+      <td>
+       <% if @book_show.user == current_user %>
+        <%= link_to "Destroy",book_path(@book_show),method: :delete %>
+       <% end %>
+      </td>
+     </tr>
+    </tbody>
+   </table>
   </div>
  </div>
 </div>
