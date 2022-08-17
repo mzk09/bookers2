@@ -1,7 +1,13 @@
-<h2>Users</h2>
+<div class="container px-5 px-smm-0">
+ <div class="row">
+  <%= render 'books/list',user:@user %>
 
- <% @users.each do |user| %>
-  <%= link_to user_path(user.id) do %>
-   <p><%= image_tag user.get_profile_image(100,100) %></p>
-  <% end %>
- <% end %>
+  <h2>Users</h2>
+
+   <% @users.each do |user| %>
+    <%= link_to user_path(user.id) do %>
+     <p><%= image_tag user.get_profile_image(100,100) %></p>
+    <% end %>
+   <% end %>
+ </div>
+</div>
